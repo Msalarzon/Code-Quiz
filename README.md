@@ -1,8 +1,12 @@
 # Code-Quiz 📚
 
+![App Screenshot](assets/app-screenshot.png)
+
+Direct Link to Application: [Code Quiz](https://msalarzon.github.io/Code-Quiz/)
+
 ## Description
 
-Embark on a journey with this super beginner-friendly "Code-Quiz" – a straightforward and basic introduction to web development concepts. Created for beginners, this quiz is designed to share the joy of learning. Click 'Start' to explore a few simple questions about the fundamentals of web development. It represents a first attempt, so your understanding is appreciated. Let's enjoy this beginner-friendly quiz experience together!
+Dive into this super beginner-friendly 'Code-Quiz' – a straightforward and basic introduction to web development concepts. Created for beginners, this quiz is designed to share the joy of learning. Click 'Start' to explore a few simple questions about the fundamentals of web development. It represents a first attempt, so your understanding is appreciated.
 
 ## Table of Contents
 
