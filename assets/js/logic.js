@@ -30,22 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 // Function Show Question
-    function showQuestion() {
-      if (currentIndex < questions.length) {
-        const currentQuestion = questions[currentIndex];
-        questionTitle.textContent = currentQuestion.question;
-        choicesContainer.innerHTML = "";
-        currentQuestion.choices.forEach((choice) => {
-          const button = document.createElement("button");
-          button.textContent = choice;
-          choicesContainer.appendChild(button);
-        });
-        document.getElementById("questions").classList.remove("hide");
-        currentIndex++;
-      } else {
-        endQuiz();
-      }
+function showQuestion() {
+    if (currentIndex < questions.length && timeLeft > 0) {
+      const currentQuestion = questions[currentIndex];
+      questionTitle.textContent = currentQuestion.question;
+      choicesContainer.innerHTML = "";
+      currentQuestion.choices.forEach((choice) => {
+        const button = document.createElement("button");
+        button.textContent = choice;
+        choicesContainer.appendChild(button);
+      });
+      document.getElementById("questions").classList.remove("hide");
+      currentIndex++;
+    } else {
+      endQuiz();
     }
+  }
   
 // Function Check Answer
 function checkAnswer(event) {
@@ -53,24 +53,26 @@ function checkAnswer(event) {
       const selectedAnswer = event.target.textContent;
       const currentQuestion = questions[currentIndex - 1];
   
-      // Logic Play Sound
+      // Logic Play Sound and Display Message
       if (selectedAnswer === currentQuestion.correctAnswer) {
         playSound("correctSound");
         score++;
+        feedbackDiv.textContent = "Correct!";
       } else {
         playSound("incorrectSound");
         timeLeft -= 10;
         updateTimer();
         feedbackDiv.textContent = "Incorrect!";
-        feedbackDiv.classList.remove("hide");
-        setTimeout(() => {
-          feedbackDiv.classList.add("hide");
-        }, 1000);
       }
   
-      showQuestion();
+      feedbackDiv.classList.remove("hide");
+      setTimeout(() => {
+        feedbackDiv.classList.add("hide");
+        showQuestion();
+      }, 1000);
     }
   }
+  
   
   // Function Play Sound
   function playSound(soundId) {
